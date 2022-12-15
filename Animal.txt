@@ -1,0 +1,100 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package animal;
+
+/**
+ *
+ * @author USER
+ */
+public class Animal {
+
+    private int statusTumbuh;//0-4
+    private int jumlahMinum;
+    private int jumlahMakan;
+    private int jumlahVitamin;
+public Animal() {
+    statusTumbuh = 0;
+    jumlahMinum = 0;
+    jumlahMakan = 0;
+    jumlahVitamin = 0;
+    }
+public int getJumlahMinum(){
+return jumlahMinum;
+    }
+public void setJumlahMinum(int n){
+jumlahMinum = n;
+    }
+public int getJumlahMakan(){
+return jumlahMakan;
+    }
+public void setJumlahMakan(int n){
+jumlahMakan = n;
+    }
+public int getJumlahVitamin(){
+return jumlahVitamin;
+    }
+public void setJumlahVitamin(int n){
+jumlahVitamin = n;
+    }
+public void setStatusTumbuh(int n){
+statusTumbuh = n;
+  }
+public void beriMinum() {
+jumlahMinum++;
+cekKondisiTumbuh();
+    }
+public void beriMakan() {
+jumlahMakan++;
+cekKondisiTumbuh();
+    }
+public void beriVitamin() {
+jumlahVitamin++;
+cekKondisiTumbuh();
+    }
+public void cekKondisiTumbuh() {
+//cek kecukupan minum dan makan
+if(jumlahMinum >=6 && jumlahMakan >=3 && jumlahVitamin >=1) {
+tumbuh();
+    }
+    }
+public void tumbuh() {
+if(statusTumbuh <4) {
+jumlahMinum = jumlahMinum - 6;
+jumlahMakan = jumlahMakan - 3;
+jumlahVitamin = jumlahVitamin -1;
+statusTumbuh++;
+    }
+    }
+public void displayAnimal() {
+System.out.println(getStatusTumbuhText());
+System.out.println("Jumlah Minum:" + jumlahMinum);
+System.out.println("Jumlah Makan:" + jumlahMakan);
+System.out.println("Jumlah Vitamin:" + jumlahVitamin);
+    }
+public String getStatusTumbuhText() {
+switch(statusTumbuh) {
+case 0: return "Bayi";
+case 1: return "Balita";
+case 2: return "Hewan Kecil";
+case 3: return "Hewan Dewasa";
+    }
+return "Beranak";
+    }
+public int getStatusTumbuh() {
+return statusTumbuh;
+    }
+public String getImagePath() {
+String tImagePath = "img/seed.png";
+switch(statusTumbuh) {
+case 0: tImagePath = "img/seed.png"; break;
+case 1: tImagePath = "img/sprout.png"; break;
+case 2: tImagePath = "img/small.png"; break;
+case 3: tImagePath = "img/big.png"; break;
+case 4: tImagePath = "img/blossom.png"; break;
+    }
+return tImagePath;
+   }
+}

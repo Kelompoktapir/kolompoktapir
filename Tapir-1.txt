@@ -1,0 +1,49 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package animal;
+
+/**
+ *
+ * @author USER
+ */
+public class Tapir extends Animal
+{
+private String jenis;
+public Tapir(){
+super();
+jenis = "Tapir";
+}
+public void cekKondisiTumbuh() {
+if(getJumlahMinum() >=6 && getJumlahMakan() >=4 && getJumlahVitamin() >=1) {
+tumbuh();
+}
+}
+public void cekKondisiKesehatan() {
+if(getJumlahMinum() <6 && getJumlahMakan() <4 && getJumlahVitamin() <1) {
+kesehatan();
+}
+}
+public void tumbuh() {
+if(getStatusTumbuh() <4) {
+setJumlahMinum(getJumlahMinum() - 6);
+setJumlahMakan(getJumlahMakan() - 4);
+setJumlahVitamin(getJumlahVitamin() - 1);
+setStatusTumbuh(getStatusTumbuh() + 1);
+}
+}
+public void kesehatan() {
+if(getStatusKesehatan() <4) {
+setJumlahMinum(getJumlahMinum() + 6);
+setJumlahMakan(getJumlahMakan() + 4);
+setJumlahVitamin(getJumlahVitamin() + 1);
+setStatusKesehatan(getStatusKesehatan() - 1);
+}
+}
+public String getJenis() {
+return jenis;
+}
+
+}
